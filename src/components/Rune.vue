@@ -48,7 +48,7 @@
               width="250"
               trigger="hover">
               <div class="simpleDetail">
-                <img class="DetailIcon" :src="'/static/images/rune/'+rune.name+'.png'" :alt="rune.name"/>
+                <img class="DetailIcon" v-lazy="'/static/images/rune/'+rune.name+'.png'" :alt="rune.name"/>
                 <div class='rune-title'>铭文名称：</div> <div class='rune-info'>{{ rune.name }}</div>
                 <div class='rune-title'>铭文等级：</div> <div class='rune-info'>{{ rune.level }}</div>
                 <div class='rune-title'>通用属性：</div> 
@@ -63,7 +63,7 @@
                 </div>
               </div>
               <a slot="reference" class="runeLink" href="/">
-                <img class="iconimg" :src="'/static/images/rune/'+rune.name+'.png'" :alt="rune.name"/>
+                <img class="iconimg" v-lazy="'/static/images/rune/'+rune.name+'.png'" :alt="rune.name"/>
                 <p class="iconitem-name">{{rune.name}}</p>
               </a>
             </el-popover>
