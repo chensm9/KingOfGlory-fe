@@ -25,14 +25,14 @@
 					width="350"
 					trigger="hover">
 					<div class="simpleDetail">
-						<img class="DetailIcon" :src="'/static/images/heros/icon/'+hero.name+'.png'" :alt="hero.name"/>
+						<img class="DetailIcon" v-lazy="'/static/images/heros/icon/'+hero.name+'.png'" :alt="hero.name"/>
 						<p>{{hero.name}}</p>
 						<p>总价： {{hero.price}}</p>
 						<p>英雄职业：{{hero.role}}</p>
 						<p>英雄定位：{{hero.type}}</p>
 					</div>
 					<a slot="reference" class="heroLink" :href="'#/hero/'+hero.name">
-						<img class="iconimg" :src="'/static/images/heros/icon/'+hero.name+'.png'" :alt="hero.name"/>
+						<img class="iconimg" v-lazy="'/static/images/heros/icon/'+hero.name+'.png'" :alt="hero.name"/>
 						<p class="iconitem-name">{{hero.name}}</p>
 					</a>
 				</el-popover>

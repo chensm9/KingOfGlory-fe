@@ -3,7 +3,7 @@ import { getAllHeroInfo, getCurrentHero } from '@/api/heroInfo';
 const heroInfo = {
   state: {
     all_hero_info: [],
-    current_hero: {},
+    current_hero: {}
   },
   mutations: {
     SET_ALL_HERO_INFO: (state, all_hero_info) => {
@@ -11,7 +11,7 @@ const heroInfo = {
     },
     SET_CURRENT_HERO: (state, current_hero) => {
       state.current_hero = current_hero;
-    },
+    }
   },
   actions: {
     GetAllHeroInfo({ commit }) {

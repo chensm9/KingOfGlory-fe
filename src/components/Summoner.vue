@@ -1,6 +1,6 @@
 <template>
   <el-container class='container'>
-    <el-aside width="40%" height="360" id='aside'>
+    <el-aside width="40%" id='aside'>
       <el-card class="left-card">
         <el-radio-group v-model="curSumName" @change="handleChange">
           <el-radio-button class="summoner-button"
@@ -62,7 +62,7 @@ export default {
 
 <style scoped>
 .container {
-  height: 550px;
+  height: auto;
 }
 
 #aside {

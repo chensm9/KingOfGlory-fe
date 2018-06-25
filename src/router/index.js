@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HeroInfoPage from '@/components/HeroInfo';
-import EquipInfoPage from '@/components/EquipInfo';
-import RuneInfoPage from '@/components/RuneInfo';
+import HeroInfoPage from '@/components/Hero';
+import EquipInfoPage from '@/components/Equip';
+import RuneInfoPage from '@/components/Rune';
 import Summoner from '@/components/Summoner';
 import Skin from '@/components/Skin';
 
@@ -43,7 +43,7 @@ export default new Router({
     {
       path: '/hero/*',
       name: 'HeroDetailInfo',
-      component: () => import('@/components/HeroDetailInfo')
+      component: () => import('@/components/HeroDetail')
     },
     {
       path: '*', redirect: '/', hidden: true

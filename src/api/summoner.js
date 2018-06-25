@@ -6,3 +6,11 @@ export function getAllSummoner() {
   });
 }
 
+export function getSummonerByName(heroName) {
+  var url = '/api/summoner/' + encodeURI(heroName);
+  return request({
+    url: url,
+    method: 'get'
+  });
+}
+

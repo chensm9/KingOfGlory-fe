@@ -23,14 +23,14 @@
 					width="350"
 					trigger="hover">
 					<div class="simpleDetail">
-						<img class="DetailIcon" :src="'/static/images/equip/'+equip.name+'.png'" :alt="equip.name"/>
+						<img class="DetailIcon" v-lazy="'/static/images/equip/'+equip.name+'.png'" :alt="equip.name"/>
 						<p>{{ equip.name }}</p>
 						<p>价格： {{equip.level}}</p>
 						<p>属性： {{equip.baseAttr}}</p>
 						<p>{{equip.equipSkill}}</p> 
 					</div>
 					<a slot="reference" class="equipLink" href="/">
-						<img class="iconimg" :src="'/static/images/equip/'+equip.name+'.png'" :alt="equip.name+'.png'"/>
+						<img class="iconimg" v-lazy="'/static/images/equip/'+equip.name+'.png'" :alt="equip.name+'.png'"/>
 						<p class="iconitem-name">{{equip.name}}</p>
 					</a>
 				</el-popover>
