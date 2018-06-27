@@ -20,14 +20,16 @@
 				v-for="equip in displayEquipInfo">
 				<el-popover
 					placement="right-start"
-					width="350"
+					width="300"
 					trigger="hover">
 					<div class="simpleDetail">
 						<img class="DetailIcon" v-lazy="'/static/images/equip/'+equip.name+'.png'" :alt="equip.name"/>
-						<p>{{ equip.name }}</p>
-						<p>价格： {{equip.level}}</p>
-						<p>属性： {{equip.baseAttr}}</p>
-						<p>{{equip.equipSkill}}</p> 
+						<p class='popover-p'>名称：{{equip.name}}</p>
+						<p class='popover-p'>价格：{{equip.price}}</p>
+            <div class='popover-p2' v-for="(value, key) in JSON.parse(equip.baseAttr)" :key='key'>
+              {{key+':'+value}}
+            </div>
+						<p class='popover-p2' v-for="item in JSON.parse(equip.equipSkill)" :key="item">{{item}}</p> 
 					</div>
 					<a slot="reference" class="equipLink" :href="'#/equip/'+equip.name">
 						<img class="iconimg" v-lazy="'/static/images/equip/'+equip.name+'.png'" :alt="equip.name+'.png'"/>
@@ -41,19 +43,13 @@
 </template>
 
 <script>
-import Axios from 'axios';
+import { mapGetters } from 'vuex';
+
 export default {
   beforeMount() {
-    Axios.get('/api/equip') // 将信息发送给后端
-      .then(
-        res => {
-          this.AllEquipInfo = res.data;
-          this.displayEquipInfo = res.data;
-        },
-        err => {
-          this.$message.error('请求错误！' + err);
-        }
-      );
+    this.$store.dispatch('GetAllEquip').then(() => {
+      this.displayEquipInfo = this.AllEquipInfo;
+    });
   },
   data() {
     return {
@@ -77,11 +73,14 @@ export default {
         ],
         防御属性: ['全部', '最大生命', '物理防御', '冷却缩减', '移速']
       },
-      AllEquipInfo: [],
       displayEquipInfo: []
     };
   },
-  computed: {},
+  computed: {
+    ...mapGetters({
+      AllEquipInfo: 'all_equip'
+    })
+  },
   methods: {
     autoFilter: function() {
       this.displayEquipInfo = [];
@@ -217,6 +216,15 @@ p.iconitem-name {
 
 div.simpleDetail {
   width: 100%;
+}
+
+.popover-p {
+  color: darkorange;
+  font-weight: bold;
+}
+
+.popover-p2 {
+  color: purple;
 }
 
 img.DetailIcon {

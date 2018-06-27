@@ -10,3 +10,9 @@ export function getCurrentEquip(equipName) {
   });
 }
 
+export function getAllEquip() {
+  return request({
+    url: '/api/equip',
+    method: 'get',
+  });
+}

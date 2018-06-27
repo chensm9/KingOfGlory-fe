@@ -77,12 +77,11 @@
 </template>
 
 <script>
-import Axios from 'axios';
+import { mapGetters } from 'vuex';
 
 export default {
   data() {
     return {
-      AllRuneInfo: [],
       displayRuneInfo: [],
       runecolor: '全部',
       runelevel: '全部',
@@ -99,116 +98,19 @@ export default {
         '攻速',
         '暴击',
         '穿透'
-      ],
-      iconlist: [
-        '一闪.png',
-        '吸收.png',
-        '应激.png',
-        '拯救.png',
-        '洞察.png',
-        '痛苦.png',
-        '致命.png',
-        '长生.png',
-        '专注.png',
-        '回声.png',
-        '异变.png',
-        '振奋.png',
-        '活力.png',
-        '白刃.png',
-        '荆棘.png',
-        '阳炎.png',
-        '传承.png',
-        '圣人.png',
-        '强健.png',
-        '收割.png',
-        '渴血.png',
-        '破甲.png',
-        '虚空.png',
-        '隐匿.png',
-        '侵蚀.png',
-        '均衡.png',
-        '心眼.png',
-        '敬畏.png',
-        '滋生.png',
-        '破魔.png',
-        '衰败.png',
-        '震击.png',
-        '信念.png',
-        '坚壁.png',
-        '怜悯.png',
-        '斗志.png',
-        '潜能.png',
-        '神速.png',
-        '调和.png',
-        '霸者.png',
-        '兽痕.png',
-        '复苏.png',
-        '急救.png',
-        '无双.png',
-        '灵山.png',
-        '祸源.png',
-        '贪婪.png',
-        '风怒.png',
-        '冥想.png',
-        '夺萃.png',
-        '恐惧.png',
-        '无畏.png',
-        '狂热.png',
-        '穿刺.png',
-        '贯穿.png',
-        '风暴.png',
-        '凶兆.png',
-        '奇袭.png',
-        '惩戒.png',
-        '暴戾.png',
-        '狩猎.png',
-        '突进.png',
-        '践踏.png',
-        '饮血.png',
-        '刚毅.png',
-        '宿命.png',
-        '愈合.png',
-        '梦魇.png',
-        '猛攻.png',
-        '繁荣.png',
-        '转换.png',
-        '鹰眼.png',
-        '刹那.png',
-        '崩坏.png',
-        '感应.png',
-        '正义.png',
-        '献祭.png',
-        '红月.png',
-        '轮回.png',
-        '勇气.png',
-        '幻盾.png',
-        '憎恶.png',
-        '气数.png',
-        '生长.png',
-        '纷争.png',
-        '野性.png',
-        '吞噬.png',
-        '庇护.png',
-        '戒律.png',
-        '治疗.png',
-        '疾行.png',
-        '绽放.png',
-        '铁躯.png'
       ]
     };
   },
-  computed: {},
+  computed: {
+    ...mapGetters({
+      AllRuneInfo: 'all_rune'
+    })
+  },
   methods: {},
   beforeMount() {
-    Axios.get('/api/rune').then(
-      res => {
-        this.AllRuneInfo = res.data;
-        this.displayRuneInfo = res.data;
-      },
-      err => {
-        this.$message.error('请求错误！' + err);
-      }
-    );
+    this.$store.dispatch('GetAllRune').then(() => {
+      this.displayRuneInfo = this.AllRuneInfo;
+    });
   }
 };
 </script>
@@ -216,6 +118,7 @@ export default {
 <style scoped>
 div#Rune-main {
   width: 100%;
+  margin-top: 2%;
   padding: 0;
 }
 

@@ -22,14 +22,14 @@
 					enterable='false'
 					placement="right-start"
 					visible-arrow='false'
-					width="350"
+					width="200"
 					trigger="hover">
 					<div class="simpleDetail">
 						<img class="DetailIcon" v-lazy="'/static/images/heros/icon/'+hero.name+'.png'" :alt="hero.name"/>
-						<p>{{hero.name}}</p>
-						<p>总价： {{hero.price}}</p>
-						<p>英雄职业：{{hero.role}}</p>
-						<p>英雄定位：{{hero.type}}</p>
+						<p class='popover-p'>英雄名称： {{hero.name}}</p>
+						<p class='popover-p'>总价： {{hero.price}}</p>
+						<p class='popover-p'>英雄职业：{{hero.role}}</p>
+						<p class='popover-p'>英雄定位：{{hero.type}}</p>
 					</div>
 					<a slot="reference" class="heroLink" :href="'#/hero/'+hero.name">
 						<img class="iconimg" v-lazy="'/static/images/heros/icon/'+hero.name+'.png'" :alt="hero.name"/>
@@ -63,7 +63,6 @@ export default {
       Options: {
         职业: ['全部', '坦克', '战士', '刺客', '法师', '射手', '辅助'],
         类型: ['全部', '近战', '远程', '物理', '魔法'],
-        // '位置': ['全部', '上单', '中单', '打野', '辅助', '下路'],
         价格: ['全部', '18888', '13888', '8888', '5888', '其它']
       },
       displayHeroInfo: []
@@ -201,9 +200,13 @@ div.simpleDetail {
   width: 100%;
 }
 
+.popover-p {
+  color: darkorange;
+}
+
 img.DetailIcon {
-  width: 30%;
-  height: 30%;
+  width: 50%;
+  height: 50%;
   display: inline-block;
 }
 </style>

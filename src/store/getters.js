@@ -1,6 +1,7 @@
 
 const getters = {
   all_hero_info: state => state.heroInfo.all_hero_info,
+  all_equip: state => state.equip.all_equip,
   all_summoner: state => state.summoner.all_summoner,
   all_skin: state => state.skinInfo.all_skin,
   all_rune: state => state.rune.all_rune,
