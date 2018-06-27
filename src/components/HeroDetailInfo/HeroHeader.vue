@@ -54,7 +54,7 @@ export default {
   data() {
     return {
       activeName: '背景故事',
-    }
+    };
   },
   computed: {
     ...mapGetters({
@@ -62,7 +62,7 @@ export default {
       SkinInfo: 'current_skin',
     })
   }
-}
+};
 </script>
 
 <style scoped>

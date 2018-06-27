@@ -66,49 +66,48 @@
 </template>
     
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
 export default {
-  name: "EquipDetail",
-  components: {
-  },
+  name: 'EquipDetail',
+  components: {},
   beforeMount() {
-    var pathlist = this.$route.path.split("/");
+    var pathlist = this.$route.path.split('/');
     var equipName = pathlist[pathlist.length - 1];
     this.equipName = decodeURI(equipName);
-    this.$store.dispatch("GetCurrentEquip", equipName);
+    this.$store.dispatch('GetCurrentEquip', equipName);
   },
   data() {
     return {
-      equipName: "",
+      equipName: ''
     };
   },
   computed: {
     ...mapGetters({
-      equip: "current_equip",
-      same_equip: "same_equip"
+      equip: 'current_equip',
+      same_equip: 'same_equip'
     })
   },
   methods: {
     fetchData: function() {
-      var pathlist = this.$route.path.split("/");
+      var pathlist = this.$route.path.split('/');
       var equipName = pathlist[pathlist.length - 1];
       this.equipName = decodeURI(equipName);
-      this.$store.dispatch("GetCurrentEquip", equipName);
+      this.$store.dispatch('GetCurrentEquip', equipName);
     }
   },
   created() {
     var self = this;
     self.fetchData();
   },
-  watch:{
-    '$route':'fetchData'
-  },
+  watch: {
+    $route: 'fetchData'
+  }
 };
 </script>
 
 <style scoped>
-.main{
+.main {
   width: 100%;
   padding: 0;
   margin: 0;
@@ -130,13 +129,14 @@ export default {
   width: 10%;
   padding: 1%;
   margin-top: 3%;
-  display: inline-block
+  display: inline-block;
 }
 
-.equip-name, .equip-price {
+.equip-name,
+.equip-price {
   width: 10%;
   padding: 1%;
-  color:darkturquoise;
+  color: darkturquoise;
   font-weight: bold;
   font-size: 18px;
   display: inline-block;
@@ -148,8 +148,8 @@ export default {
   margin-top: 2%;
   /* margin-left: 30%; */
   font-size: 20px;
-  color:indigo;
-  display: inline-block
+  color: indigo;
+  display: inline-block;
 }
 
 .baseAttr {
@@ -171,16 +171,16 @@ p.equip-skill {
   text-align: left;
 }
 
-a.equipLink	{
-	text-decoration : none;
+a.equipLink {
+  text-decoration: none;
   width: 9%;
   float: left;
   margin: 1%;
-} 
+}
 
 p.iconitem-name {
-	color: black;
-  background-color:aliceblue;
+  color: black;
+  background-color: aliceblue;
   font-size: 13px;
 }
 
@@ -190,17 +190,15 @@ p.iconitem-name {
   border-radius: 50%;
 }
 
-a.same-equip-link	{
-	text-decoration : none;
+a.same-equip-link {
+  text-decoration: none;
   width: 9%;
   float: left;
   margin: 1%;
-} 
+}
 
 .bottom-box {
   width: 100%;
   display: block;
 }
-
-
 </style>

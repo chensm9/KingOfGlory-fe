@@ -38,21 +38,21 @@ export default {
       pageSize: 6,
       currentPage: 1,
       // 搜索条件
-      criteria: '',
-    }
+      criteria: ''
+    };
   },
   computed: {
     ...mapGetters({
-      allSkin: 'all_skin',
-		})
+      allSkin: 'all_skin'
+    })
   },
   methods: {
     // 初始化
     init: function() {
       var h = document.documentElement.clientHeight;
-      document.getElementById('container').style.height=h*0.9+"px";
+      document.getElementById('container').style.height = h * 0.9 + 'px';
       this.totalCount = this.allSkin.length;
-      for(let i=0; i < this.pageSize; i++) {
+      for (let i = 0; i < this.pageSize; i++) {
         this.current_list.push(this.allSkin[i]);
       }
     },
@@ -67,18 +67,21 @@ export default {
     handleCurrentChange: function(val) {
       this.currentPage = val;
       this.loadData();
-    },        
+    },
 
     // 更新数据
     loadData: function() {
       this.current_list = [];
-      let temp = this.allSkin.length - this.pageSize*(this.currentPage-1);
+      let temp = this.allSkin.length - this.pageSize * (this.currentPage - 1);
       temp = temp > this.pageSize ? this.pageSize : temp;
-      for(let i = 0; i < temp; i++)
-        this.current_list.push(this.allSkin[i+this.pageSize*(this.currentPage-1)]);
+      for (let i = 0; i < temp; i++) {
+        this.current_list.push(
+          this.allSkin[i + this.pageSize * (this.currentPage - 1)]
+        );
+      }
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -100,7 +103,7 @@ export default {
   width: 31%;
   height: 40%;
   margin: 1%;
-  margin-top:3%;
+  margin-top: 3%;
 }
 
 .skinImg {
@@ -111,7 +114,7 @@ export default {
 p {
   height: 2%;
   padding: 0;
-  color:darkorange;
+  color: darkorange;
   font-weight: bold;
 }
 

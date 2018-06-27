@@ -56,8 +56,8 @@ export default {
     return {
       select_skill: {},
       curSkillName: '',
-      firstSkill: '',  // 主加技能
-      secondSkill: '', // 副加技能
+      firstSkill: '', // 主加技能
+      secondSkill: '' // 副加技能
     };
   },
   computed: {
@@ -66,9 +66,9 @@ export default {
     })
   },
   methods: {
-    handleChange: function () {
-      for(var i = 0; i < this.skillInfo.length; i++) {
-        if (this.skillInfo[i].name == this.curSkillName) {
+    handleChange: function() {
+      for (var i = 0; i < this.skillInfo.length; i++) {
+        if (this.skillInfo[i].name === this.curSkillName) {
           this.select_skill = this.skillInfo[i];
           break;
         }
@@ -77,31 +77,30 @@ export default {
     init: function() {
       this.curSkillName = this.skillInfo[0].name;
       this.select_skill = this.skillInfo[0];
-      for(var i = 0; i < this.skillInfo.length; i++) {
-        if (this.skillInfo[i].mainDeputy == "主升") {
+      for (var i = 0; i < this.skillInfo.length; i++) {
+        if (this.skillInfo[i].mainDeputy === '主升') {
           this.firstSkill = this.skillInfo[i].name;
-        } else if (this.skillInfo[i].mainDeputy == "副升") {
+        } else if (this.skillInfo[i].mainDeputy === '副升') {
           this.secondSkill = this.skillInfo[i].name;
         }
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>
-
 .all-skill-box {
   width: 70%;
   height: 100%;
-  background-color:lavenderblush;
+  background-color: lavenderblush;
   padding: 1%;
 }
 
 .right-box {
   width: 30%;
   height: 100%;
-  background-color:lavenderblush;
+  background-color: lavenderblush;
   padding: 1%;
 }
 
@@ -167,5 +166,4 @@ export default {
   width: 90%;
   vertical-align: center;
 }
-
 </style>

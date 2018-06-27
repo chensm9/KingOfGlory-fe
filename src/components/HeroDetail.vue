@@ -1,51 +1,48 @@
 <template>
-  <div id="main">
-    <hero-header id="header"></hero-header>
-    <skill id="skill"></skill>
-    <sum-rune id="sum-rune"></sum-rune>
-    <collocation id="collocation"></collocation>
+  <div id='main'>
+    <hero-header id='header'></hero-header>
+    <skill id='skill'></skill>
+    <sum-rune id='sum-rune'></sum-rune>
+    <collocation id='collocation'></collocation>
   </div>
 </template>
     
 <script>
-import Skill from "./HeroDetailInfo/Skill";
-import SumRune from "./HeroDetailInfo/SumRune";
-import HeroHeader from "./HeroDetailInfo/HeroHeader";
-import Collocation from "./HeroDetailInfo/Collocation";
-import { mapGetters } from "vuex";
+import Skill from './HeroDetailInfo/Skill';
+import SumRune from './HeroDetailInfo/SumRune';
+import HeroHeader from './HeroDetailInfo/HeroHeader';
+import Collocation from './HeroDetailInfo/Collocation';
+import { mapGetters } from 'vuex';
 
 export default {
-  name: "HeroDetailInfo",
+  name: 'HeroDetailInfo',
   components: {
     HeroHeader,
     Skill,
     SumRune,
-    Collocation,
+    Collocation
   },
   beforeMount() {
-    var pathlist = this.$route.path.split("/");
+    var pathlist = this.$route.path.split('/');
     var heroName = pathlist[pathlist.length - 1];
-    this.$store.dispatch("GetCurrentHero", heroName).then(() => {
+    this.$store.dispatch('GetCurrentHero', heroName).then(() => {
       this.$store.dispatch(
-        "GetSummonerByName",
+        'GetSummonerByName',
         this.current_hero.summonerSpell
       );
-      this.$store.dispatch(
-        "GetCurrentRune",
-        this.current_hero.runes
-      );
+      this.$store.dispatch('GetCurrentRune', this.current_hero.runes);
       this.$store.dispatch('GetCurrentCollocation', this.current_hero.name);
       var h = document.documentElement.clientHeight;
-      document.getElementById("main").style.height = h * 2.5 + "px";
+      document.getElementById('main').style.height = h * 2.5 + 'px';
     });
-    this.$store.dispatch("GetCurrentSkin", heroName);
+    this.$store.dispatch('GetCurrentSkin', heroName);
   },
   data() {
     return {};
   },
   computed: {
     ...mapGetters({
-      current_hero: "current_hero"
+      current_hero: 'current_hero'
     })
   },
   methods: {}

@@ -30,22 +30,18 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'SumRune',
-  beforeMount() {
-  },
+  beforeMount() {},
   data() {
-    return {
-    }
+    return {};
   },
   computed: {
     ...mapGetters({
       summoner: 'current_summoner',
-      runeList: 'current_rune',
-	  })
+      runeList: 'current_rune'
+    })
   },
-  methods: {
-    
-  }
-}
+  methods: {}
+};
 </script>
 
 <style scoped>
@@ -85,8 +81,9 @@ export default {
   vertical-align: center;
 }
 
-.sum-cd, .sum-desc{
-  color:blueviolet;
+.sum-cd,
+.sum-desc {
+  color: blueviolet;
   margin: 2%;
   padding: 3%;
   text-align: left;

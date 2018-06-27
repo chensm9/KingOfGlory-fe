@@ -1,6 +1,6 @@
 <template>
   <el-container class='container'>
-    <el-aside width="40%" id='aside'>
+    <el-aside width='40%' id='aside'>
       <el-card class="left-card">
         <el-radio-group v-model="curSumName" @change="handleChange">
           <el-radio-button class="summoner-button"
@@ -34,30 +34,30 @@ export default {
   beforeMount() {
     this.$store.dispatch('GetAllSummoner').then(() => {
       this.curSum = this.AllSummoner[0];
-    })
+    });
   },
   data() {
     return {
-      curSumName: "惩击",
+      curSumName: '惩击',
       curSum: {}
-    }
+    };
   },
   computed: {
     ...mapGetters({
-      AllSummoner: 'all_summoner',
-		})
+      AllSummoner: 'all_summoner'
+    })
   },
   methods: {
-    handleChange: function () {
-      for(var i = 0; i < this.AllSummoner.length; i++) {
-        if (this.AllSummoner[i].name == this.curSumName) {
+    handleChange: function() {
+      for (var i = 0; i < this.AllSummoner.length; i++) {
+        if (this.AllSummoner[i].name === this.curSumName) {
           this.curSum = this.AllSummoner[i];
           break;
         }
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>

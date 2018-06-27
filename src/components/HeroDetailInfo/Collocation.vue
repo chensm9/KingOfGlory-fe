@@ -21,21 +21,17 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'Collocation',
-  beforeMount() {
-  },
+  beforeMount() {},
   data() {
-    return {
-    }
+    return {};
   },
   computed: {
     ...mapGetters({
       collocation: 'current_collocation'
-	  })
+    })
   },
-  methods: {
-    
-  }
-}
+  methods: {}
+};
 </script>
 
 <style scoped>
@@ -53,7 +49,7 @@ export default {
 }
 
 .collocation-title {
-  color:salmon;
+  color: salmon;
   font-size: 22px;
   font-weight: bold;
   padding: 2%;
@@ -79,13 +75,13 @@ export default {
 
 .equip-title {
   padding: 1%;
-  color:rgb(184, 14, 133);
+  color: rgb(184, 14, 133);
   font-weight: bold;
   font-size: 13px;
 }
 .analysis {
   padding: 1%;
-  color:rgb(14, 17, 184);
+  color: rgb(14, 17, 184);
   font-size: 15px;
   text-align: left;
 }
