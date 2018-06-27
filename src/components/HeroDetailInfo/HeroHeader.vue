@@ -48,19 +48,19 @@
 import { mapGetters } from 'vuex';
 
 export default {
-	name: 'HeroHeader',
-	beforeMount() {
+  name: 'HeroHeader',
+  beforeMount() {
   },
-	data() {
+  data() {
     return {
       activeName: '背景故事',
     }
-	},
+  },
   computed: {
     ...mapGetters({
       HeroInfo: 'current_hero',
       SkinInfo: 'current_skin',
-		})
+    })
   }
 }
 </script>

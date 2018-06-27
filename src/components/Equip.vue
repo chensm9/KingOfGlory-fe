@@ -29,7 +29,7 @@
 						<p>属性： {{equip.baseAttr}}</p>
 						<p>{{equip.equipSkill}}</p> 
 					</div>
-					<a slot="reference" class="equipLink" href="/">
+					<a slot="reference" class="equipLink" :href="'#/equip/'+equip.name">
 						<img class="iconimg" v-lazy="'/static/images/equip/'+equip.name+'.png'" :alt="equip.name+'.png'"/>
 						<p class="iconitem-name">{{equip.name}}</p>
 					</a>

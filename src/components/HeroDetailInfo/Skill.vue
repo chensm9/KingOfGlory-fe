@@ -56,14 +56,14 @@ export default {
     return {
       select_skill: {},
       curSkillName: '',
-      firstSkill:'', // 主加技能
-      secondSkill:'', //副加技能
-    }
+      firstSkill: '',  // 主加技能
+      secondSkill: '', // 副加技能
+    };
   },
   computed: {
     ...mapGetters({
       skillInfo: 'current_skill'
-		})
+    })
   },
   methods: {
     handleChange: function () {

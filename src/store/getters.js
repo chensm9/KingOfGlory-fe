@@ -9,6 +9,8 @@ const getters = {
   current_skin: state => state.skinInfo.current_skin,
   current_summoner: state => state.summoner.current_summoner,
   current_rune: state => state.rune.current_rune,
-  current_collocation: state => state.collocation.current_collocation
+  current_collocation: state => state.collocation.current_collocation,
+  current_equip: state => state.equip.current_equip,
+  same_equip: state => state.equip.same_equip
 };
 export default getters;

@@ -46,6 +46,11 @@ export default new Router({
       component: () => import('@/components/HeroDetail')
     },
     {
+      path: '/equip/*',
+      name: 'EquipDetail',
+      component: () => import('@/components/EquipDetail')
+    },
+    {
       path: '*', redirect: '/', hidden: true
     }
   ]

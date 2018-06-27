@@ -7,7 +7,7 @@
               v-for="summoner in AllSummoner"
               :label="summoner.name"
               :key="summoner.name">
-            <img class="summoner-icon" :src="'/static/images/summoner/'+summoner.name+'.jpg'" :alt="summoner.name"/>
+            <img class="summoner-icon" v-lazy="'/static/images/summoner/'+summoner.name+'.jpg'" :alt="summoner.name"/>
           </el-radio-button>
         </el-radio-group>
       </el-card>

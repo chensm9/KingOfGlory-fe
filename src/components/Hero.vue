@@ -46,13 +46,13 @@
 import { mapGetters } from 'vuex';
 
 export default {
-	name: "HeroInfo",
+  name: "heroInfo",
   beforeMount() {
 		this.$store.dispatch('GetAllHeroInfo').then(() => {
 			this.displayHeroInfo = this.AllHeroInfo;
 		});
   },
-	data() {
+  data() {
 		return {
       headerlist: ['职业', '类型', '价格'],
       headerlistMap: {

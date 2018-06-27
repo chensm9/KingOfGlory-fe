@@ -18,6 +18,10 @@ Vue.use(VueLazyload, {
   try: 2 // 这个是加载图片数量
 });
 
+router.afterEach((to, from, next) => {
+  window.scrollTo(0, 0);
+});
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

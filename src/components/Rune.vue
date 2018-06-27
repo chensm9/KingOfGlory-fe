@@ -80,8 +80,8 @@
 import Axios from 'axios';
 
 export default {
-	data() {
-		return {
+  data() {
+    return {
       AllRuneInfo: [],
       displayRuneInfo: [],
       runecolor: "全部",

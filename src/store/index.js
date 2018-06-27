@@ -6,6 +6,7 @@ import skillInfo from './modules/skillInfo';
 import skinInfo from './modules/skinInfo';
 import rune from './modules/rune';
 import collocation from './modules/collocation';
+import equip from './modules/equip';
 import getters from './getters';
 
 Vue.use(Vuex);
@@ -18,6 +19,7 @@ const store = new Vuex.Store({
     skinInfo,
     rune,
     collocation,
+    equip,
   },
   getters
 });
