@@ -84,7 +84,6 @@ export default {
   methods: {
     autoFilter: function() {
       this.displayEquipInfo = [];
-      console.log(this.headerlistMap);
       for (let i = 0; i < this.AllEquipInfo.length; i++) {
         if (
           this.headerlistMap['类型'] !== '全部' &&

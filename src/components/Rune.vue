@@ -4,7 +4,7 @@
       <div id="select-box">
         <p class="select-title">铭文颜色</p>
         <div class="el-select-box">
-          <el-select v-model="runecolor">
+          <el-select v-model="runecolor" @change='handleChange'>
             <el-option
               v-for="item in runecolorlist"
               :key="item"
@@ -15,7 +15,7 @@
         </div>
         <p class="select-title">铭文等级</p>
         <div class="el-select-box">
-          <el-select v-model="runelevel">
+          <el-select v-model="runelevel" @change='handleChange'>
             <el-option
               v-for="item in runelevellist"
               :key="item"
@@ -26,7 +26,7 @@
         </div>
         <p class="select-title">铭文类型</p>
         <div class="el-select-box">
-          <el-select v-model="runetype">
+          <el-select v-model="runetype" @change='handleChange'>
             <el-option
               v-for="item in runetypelist"
               :key="item"
@@ -35,7 +35,7 @@
             </el-option>
           </el-select>
         </div>
-        <el-button id="clearButton" type="primary">一键清空铭文</el-button>
+        <!-- <el-button id="clearButton" type="primary">一键清空铭文</el-button> -->
       </div>
 
       <div id="content-box">
@@ -46,6 +46,7 @@
             <el-popover
               placement="right-start"
               width="250"
+              class="popover"
               trigger="hover">
               <div class="simpleDetail">
                 <img class="DetailIcon" v-lazy="'/static/images/rune/'+rune.name+'.png'" :alt="rune.name"/>
@@ -62,10 +63,10 @@
                   {{ key+':'+item }}
                 </div>
               </div>
-              <a slot="reference" class="runeLink" href="/">
+              <div slot="reference" class="runeLink">
                 <img class="iconimg" v-lazy="'/static/images/rune/'+rune.name+'.png'" :alt="rune.name"/>
                 <p class="iconitem-name">{{rune.name}}</p>
-              </a>
+              </div>
             </el-popover>
           </li>
         </ul>
@@ -86,7 +87,7 @@ export default {
       runecolor: '全部',
       runelevel: '全部',
       runetype: '全部',
-      runecolorlist: ['全部', '红', '绿', '蓝'],
+      runecolorlist: ['全部', '红色', '绿色', '蓝色'],
       runelevellist: ['全部', '一级', '二级', '三级', '四级', '五级'],
       runetypelist: [
         '全部',
@@ -106,7 +107,32 @@ export default {
       AllRuneInfo: 'all_rune'
     })
   },
-  methods: {},
+  methods: {
+    handleChange: function() {
+      this.displayRuneInfo = [];
+      for (let i = 0; i < this.AllRuneInfo.length; i++) {
+        if (
+          this.runecolor !== '全部' &&
+          this.AllRuneInfo[i].color !== this.runecolor
+        ) {
+          continue;
+        }
+        if (
+          this.runelevel !== '全部' &&
+          this.AllRuneInfo[i].level !== this.runelevel
+        ) {
+          continue;
+        }
+        if (
+          this.runetype !== '全部' &&
+          this.AllRuneInfo[i].category.indexOf(this.runetype) === -1
+        ) {
+          continue;
+        }
+        this.displayRuneInfo.push(this.AllRuneInfo[i]);
+      }
+    }
+  },
   beforeMount() {
     this.$store.dispatch('GetAllRune').then(() => {
       this.displayRuneInfo = this.AllRuneInfo;
@@ -123,8 +149,7 @@ div#Rune-main {
 }
 
 div#Rune-selection {
-  width: 40%;
-  float: left;
+  width: 100%;
   margin: 0;
 }
 
@@ -134,17 +159,19 @@ div#select-box {
 }
 
 div.el-select-box {
-  width: 25%;
+  width: 10%;
   padding: 0;
   margin: 0;
   float: left;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 }
 
 p.select-title {
-  width: 25%;
+  width: 10%;
   padding: 0;
   margin-top: 1%;
+  color: blueviolet;
+  font-weight: bold;
   float: left;
 }
 
@@ -167,8 +194,6 @@ div#content-box {
   display: inline-block;
   margin-left: 0;
   padding: 0;
-  height: 80%;
-  overflow: auto;
 }
 
 img {
@@ -180,12 +205,13 @@ img {
 .iconitem {
   list-style: none;
   display: inline-block;
-  width: 15%;
+  width: 8%;
   margin: 1%;
 }
 
-a.runeLink {
+.runeLink {
   text-decoration: none;
+  display: inline-block;
 }
 
 p.iconitem-name {
@@ -198,11 +224,14 @@ div.simpleDetail {
   width: 100%;
   /* display: block; */
   float: left;
+  background-color: blanchedalmond;
 }
 
 img.DetailIcon {
-  width: 30%;
-  height: 30%;
+  width: 40%;
+  height: 40%;
+  margin-left: 30%;
+  margin-bottom: 5%;
   display: block;
 }
 
@@ -223,5 +252,6 @@ img.DetailIcon {
   padding: 2%;
   text-align: center;
   color: rgb(138, 12, 143);
+  font-weight: bold;
 }
 </style>
