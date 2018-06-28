@@ -25,7 +25,7 @@
 					<iframe class="video" :src="HeroInfo.videoUrl"></iframe>
 				</el-tab-pane>
 				<el-tab-pane label="英雄皮肤" name="英雄皮肤">
-					<el-carousel>
+					<el-carousel height="350px">
 						<el-carousel-item
 								v-for="skin in SkinInfo" :key="skin.name" :label="skin.name">
 							<img class="skin-image" v-lazy="'/static/images/heros/skin/'+skin.belongTo+'/'+skin.name+'.jpg'" 
