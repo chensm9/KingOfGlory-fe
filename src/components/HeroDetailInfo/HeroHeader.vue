@@ -153,7 +153,7 @@ div.el-tab-pane {
 }
 
 .base-attr-box {
-	height: 340px;
+	height: 350px;
 	overflow: auto;
 }
 
