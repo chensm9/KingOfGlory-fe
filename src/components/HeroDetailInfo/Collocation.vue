@@ -77,12 +77,12 @@ export default {
   padding: 1%;
   color: rgb(184, 14, 133);
   font-weight: bold;
-  font-size: 13px;
+  font-size: 12px;
 }
 .analysis {
   padding: 1%;
   color: rgb(14, 17, 184);
-  font-size: 15px;
+  font-size: 14px;
   text-align: left;
 }
 </style>

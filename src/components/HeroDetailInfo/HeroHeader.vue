@@ -22,7 +22,7 @@
 					</el-card>
 				</el-tab-pane>
 				<el-tab-pane label="英雄视频" name="英雄视频">
-					<iframe class="video" width="100%" height="360px"  :src="HeroInfo.videoUrl"></iframe>
+					<iframe class="video" width="100%" min-height="300px"  :src="HeroInfo.videoUrl"></iframe>
 				</el-tab-pane>
 				<el-tab-pane label="英雄皮肤" name="英雄皮肤">
 					<el-carousel>
@@ -90,6 +90,7 @@ export default {
   width: 25%;
   background-color: rgb(255, 0, 119);
   color: white;
+	font-size: 15px;
   padding: 2%;
   margin: 1% 1% 1% 6%;
 }
@@ -99,6 +100,8 @@ export default {
   color: rgb(111, 21, 129);
   width: 50%;
   padding: 2%;
+	font-size: 15px;
+	font-weight: bold;
   margin: 2% 2% 2% 1%;
 }
 
@@ -129,6 +132,7 @@ div.el-tab-pane {
 
 .skin-image {
   width: 100%;
+	height: 100%;
 }
 
 .skin-box {
@@ -136,7 +140,7 @@ div.el-tab-pane {
 }
 
 #story-box {
-  height: 260px;
+  height: 300px;
   overflow: auto;
   background-color: rgb(227, 255, 204);
   padding: 2%;
@@ -144,12 +148,12 @@ div.el-tab-pane {
 }
 
 .story-section {
-  font-size: 13px;
+  font-size: 14px;
   text-align: left;
 }
 
 .base-attr-box {
-	height: 380px;
+	height: 350px;
 	overflow: auto;
 }
 
@@ -158,11 +162,12 @@ div.el-tab-pane {
   margin-right: 3%;
   margin-bottom: 3%; 
   background-color: #0099CC; 
+	font-weight: bold;
+	font-size: 14px;
   color: white;
   padding: 1%;
   float: left;
   width: 20%;
-	min-height: 14%;
 }
 
 

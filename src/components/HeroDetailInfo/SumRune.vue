@@ -93,6 +93,7 @@ export default {
   width: 30%;
   height: 100%;
   display: inline-block;
+  vertical-align: top;
 }
 
 .rune-color {
