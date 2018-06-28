@@ -143,9 +143,9 @@ export default {
 
 <style scoped>
 div#Rune-main {
-  width: 100%;
-  margin-top: 2%;
-  padding: 0;
+  background-color:rgb(225, 223, 231);
+  width: 96%;
+  padding: 2%;
 }
 
 div#Rune-selection {
@@ -185,7 +185,6 @@ button#clearButton {
 }
 
 div#content-box {
-  height: 500px;
   padding: 0;
 }
 

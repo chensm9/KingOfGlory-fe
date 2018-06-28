@@ -101,7 +101,7 @@ export default {
         ) {
           continue;
         } else if (
-          this.headerlistMap['价格'] !== '全部' &&
+          this.headerlistMap['价格'] !== '全部' && this.headerlistMap['价格'] !== '其它' &&
           this.AllHeroInfo[i].price.indexOf(this.headerlistMap['价格']) === -1
         ) {
           continue;
@@ -176,7 +176,6 @@ p.label {
 
 img.iconimg {
   width: 100%;
-  height: 100%;
 }
 
 .iconitem {
@@ -209,4 +208,5 @@ img.DetailIcon {
   height: 50%;
   display: inline-block;
 }
+
 </style>

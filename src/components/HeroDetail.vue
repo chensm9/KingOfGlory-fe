@@ -55,7 +55,7 @@ export default {
 }
 
 #skill {
-  height: 25%;
+  height: 28%;
 }
 
 #sum-rune {
@@ -63,6 +63,6 @@ export default {
 }
 
 #collocation {
-  height: 30%;
+  height: 35%;
 }
 </style>

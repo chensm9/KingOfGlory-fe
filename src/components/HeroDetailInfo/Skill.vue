@@ -91,14 +91,14 @@ export default {
 
 <style scoped>
 .all-skill-box {
-  width: 70%;
+  width: 65%;
   height: 100%;
   background-color: lavenderblush;
   padding: 1%;
 }
 
 .right-box {
-  width: 30%;
+  width: 35%;
   height: 100%;
   background-color: lavenderblush;
   padding: 1%;
