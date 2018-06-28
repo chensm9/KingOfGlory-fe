@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <el-card class = 'sum-box'>
       <div slot="header" class="title">
         <span>召唤师技能</span>
@@ -45,17 +45,27 @@ export default {
 </script>
 
 <style scoped>
+.main {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .sum-box {
-  width: 25%;
+  width: 26%;
   height: 100%;
+  border: 0;
+  margin: 0;
   padding: 2%;
   float: left;
 }
 
 .all-rune-box {
   width: 66%;
-  padding: 2%;
   height: 100%;
+  border: 0;
+  margin: 0;
+  padding: 2%;
   float: right;
 }
 
@@ -63,7 +73,6 @@ export default {
   color: darkorange;
   font-size: 25px;
   font-weight: bold;
-  padding: 2%;
   text-align: left;
 }
 

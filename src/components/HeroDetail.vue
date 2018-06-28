@@ -55,7 +55,7 @@ export default {
 }
 
 #skill {
-  height: 28%;
+  height: 25%;
 }
 
 #sum-rune {

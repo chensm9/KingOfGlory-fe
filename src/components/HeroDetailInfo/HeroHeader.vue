@@ -14,7 +14,7 @@
 			</el-card>
 		</el-aside>
 		<el-main id="main" class='uni-color'>
-			<el-tabs v-model="activeName">
+			<el-tabs v-model="activeName" class="all-el-tabs">
 				<el-tab-pane label="背景故事" name="背景故事">
 					<el-card id="story-box">
 						<p class='story-section' v-for="section in HeroInfo.story" 
@@ -22,7 +22,7 @@
 					</el-card>
 				</el-tab-pane>
 				<el-tab-pane label="英雄视频" name="英雄视频">
-					<iframe class="video" width="100%" min-height="300px"  :src="HeroInfo.videoUrl"></iframe>
+					<iframe class="video" :src="HeroInfo.videoUrl"></iframe>
 				</el-tab-pane>
 				<el-tab-pane label="英雄皮肤" name="英雄皮肤">
 					<el-carousel>
@@ -109,7 +109,7 @@ export default {
   background-color: rgb(227, 255, 204);
 }
 
-div.el-tabs{
+.all-el-tabs{
 	height: 95%;
 }
 
@@ -126,13 +126,13 @@ div.el-tab-pane {
 }
 
 .video {
-	height: 310px;
+	height: 350px;
 	width: 95%;
 }
 
 .skin-image {
   width: 100%;
-	height: 100%;
+	/* height: 100%; */
 }
 
 .skin-box {
@@ -153,14 +153,14 @@ div.el-tab-pane {
 }
 
 .base-attr-box {
-	height: 350px;
+	height: 330px;
 	overflow: auto;
 }
 
 .base-attr {
   font-size: 15px;
-  margin-right: 3%;
-  margin-bottom: 3%; 
+  margin-right: 2.5%;
+  margin-bottom: 2.5%; 
   background-color: #0099CC; 
 	font-weight: bold;
 	font-size: 14px;

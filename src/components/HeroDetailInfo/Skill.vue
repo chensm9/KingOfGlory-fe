@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <div class="main">
     <el-card class='all-skill-box'>
       <div slot="header" class="title">
         <span>技能介绍</span>
@@ -37,7 +37,7 @@
         </div>
       </div>
     </el-card>
-  </el-container>
+  </div>
 </template>
 
 <script>
@@ -90,25 +90,33 @@ export default {
 </script>
 
 <style scoped>
+.main {
+  width: 100%;
+  padding: 0;
+}
+
 .all-skill-box {
-  width: 65%;
+  width: 61%;
   height: 100%;
-  background-color: lavenderblush;
-  padding: 1%;
+  border: 0;
+  margin: 0;
+  padding: 2%;
+  float: left;
 }
 
 .right-box {
-  width: 35%;
+  width: 31%;
   height: 100%;
-  background-color: lavenderblush;
-  padding: 1%;
+  border: 0;
+  margin: 0;
+  padding: 2%;
+  float: right;
 }
 
 .title {
   color: darkorange;
   font-size: 25px;
   font-weight: bold;
-  padding: 2%;
   text-align: left;
 }
 
