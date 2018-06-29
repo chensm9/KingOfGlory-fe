@@ -87,14 +87,14 @@ export default {
   },
   data() {
     return {
-      equipName: ''
+      equipName: '',
+      loading: null
     };
   },
   computed: {
     ...mapGetters({
       equip: 'current_equip',
       same_equip: 'same_equip',
-      loading: null
     })
   },
   methods: {
