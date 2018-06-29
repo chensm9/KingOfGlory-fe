@@ -85,6 +85,7 @@ export default {
         }
       }
       this.totalCount = this.select_skin.length;
+      this.currentPage = 1;
       this.loadData();
     },
 
