@@ -13,7 +13,15 @@
           v-bind:key="option">{{ option }}</el-radio>
       </el-radio-group>
 		</div>
-
+    <div slot="header" class="option-box" >
+      <el-input class="input-box"
+        placeholder="请输入英雄名称"
+        v-model="inputName"
+        prefix-icon="el-icon-search"
+        clearable>
+      </el-input>
+      <el-button class="input-button" @click="inputChange">确定搜索</el-button>
+    </div>
 		<ul class="icon-ul">
 			<li class="iconitem"
 				v-bind:key="hero"
@@ -65,7 +73,8 @@ export default {
         类型: ['全部', '近战', '远程', '物理', '魔法'],
         价格: ['全部', '18888', '13888', '8888', '5888', '其它']
       },
-      displayHeroInfo: []
+      displayHeroInfo: [],
+      inputName: ''
     };
   },
   computed: {
@@ -76,7 +85,7 @@ export default {
   methods: {
     autoFilter: function() {
       this.displayHeroInfo = [];
-      console.log(this.headerlistMap);
+      this.inputName = '';
       for (let i = 0; i < this.AllHeroInfo.length; i++) {
         if (
           this.headerlistMap['职业'] !== '全部' &&
@@ -107,6 +116,14 @@ export default {
           continue;
         }
         this.displayHeroInfo.push(this.AllHeroInfo[i]);
+      }
+    },
+    inputChange: function() {
+      this.displayHeroInfo = [];
+      for (let i = 0; i < this.AllHeroInfo.length; i++) {
+        if (this.AllHeroInfo[i].name.indexOf(this.inputName) !== -1) {
+          this.displayHeroInfo.push(this.AllHeroInfo[i]);
+        }
       }
     }
   }
@@ -207,6 +224,18 @@ img.DetailIcon {
   width: 50%;
   height: 50%;
   display: inline-block;
+}
+ 
+.input-box {
+  width: 20%;
+  float: left;
+}
+
+.input-button {
+  background-color:salmon;
+  color: white;
+  float: left;
+  margin-left: 3%;
 }
 
 </style>

@@ -13,6 +13,16 @@
           v-bind:key="option">{{ option }}</el-radio>
       </el-radio-group>
 		</div>
+    <div slot="header" class="option-box" >
+      <el-input class="input-box"
+        placeholder="请输入装备名称"
+        v-model="inputName"
+        prefix-icon="el-icon-search"
+        clearable>
+      </el-input>
+      <el-button class="input-button" @click="inputChange">确定搜索</el-button>
+    </div>
+
 
 		<ul class="icon-ul">
 			<li class="iconitem"
@@ -73,7 +83,8 @@ export default {
         ],
         防御属性: ['全部', '最大生命', '物理防御', '冷却缩减', '移速']
       },
-      displayEquipInfo: []
+      displayEquipInfo: [],
+      inputName: ''
     };
   },
   computed: {
@@ -114,6 +125,14 @@ export default {
           continue;
         }
         this.displayEquipInfo.push(this.AllEquipInfo[i]);
+      }
+    },
+    inputChange: function() {
+      this.displayEquipInfo = [];
+      for (let i = 0; i < this.AllEquipInfo.length; i++) {
+        if (this.AllEquipInfo[i].name.indexOf(this.inputName) !== -1) {
+          this.displayEquipInfo.push(this.AllEquipInfo[i]);
+        }
       }
     }
   }
@@ -231,4 +250,17 @@ img.DetailIcon {
   height: 30%;
   display: inline-block;
 }
+ 
+.input-box {
+  width: 20%;
+  float: left;
+}
+
+.input-button {
+  background-color:salmon;
+  color: white;
+  float: left;
+  margin-left: 3%;
+}
+
 </style>
