@@ -32,12 +32,20 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'Summoner',
   beforeMount() {
+    this.loading = this.$loading({
+      lock: true,
+      text: '正在从数据库获取数据中',
+      spinner: 'el-icon-loading',
+      background: 'rgba(0, 0, 0, 0.7)'
+    });
     this.$store.dispatch('GetAllSummoner').then(() => {
       this.curSum = this.AllSummoner[0];
+      this.loading.close();
     });
   },
   data() {
     return {
+      loading: null,
       curSumName: '惩击',
       curSum: {}
     };

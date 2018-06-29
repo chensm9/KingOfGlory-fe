@@ -134,8 +134,15 @@ export default {
     }
   },
   beforeMount() {
+    this.loading = this.$loading({
+      lock: true,
+      text: '正在从数据库获取数据中',
+      spinner: 'el-icon-loading',
+      background: 'rgba(0, 0, 0, 0.7)'
+    });
     this.$store.dispatch('GetAllRune').then(() => {
       this.displayRuneInfo = this.AllRuneInfo;
+      this.loading.close();
     });
   }
 };

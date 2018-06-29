@@ -56,8 +56,15 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'heroInfo',
   beforeMount() {
-    this.$store.dispatch('GetAllHeroInfo').then(() => {
+    this.loading = this.$loading({
+      lock: true,
+      text: '正在从数据库获取数据中',
+      spinner: 'el-icon-loading',
+      background: 'rgba(0, 0, 0, 0.7)'
+    });
+    this.$store.dispatch('GetAllHeroInfo').then((loading) => {
       this.displayHeroInfo = this.AllHeroInfo;
+      this.loading.close();
     });
   },
   data() {
@@ -74,7 +81,8 @@ export default {
         价格: ['全部', '18888', '13888', '8888', '5888', '其它']
       },
       displayHeroInfo: [],
-      inputName: ''
+      inputName: '',
+      loading: null
     };
   },
   computed: {

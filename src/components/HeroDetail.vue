@@ -23,6 +23,12 @@ export default {
     Collocation
   },
   beforeMount() {
+    this.loading = this.$loading({
+      lock: true,
+      text: '正在从数据库获取数据中',
+      spinner: 'el-icon-loading',
+      background: 'rgba(0, 0, 0, 0.7)'
+    });
     var pathlist = this.$route.path.split('/');
     var heroName = pathlist[pathlist.length - 1];
     this.$store.dispatch('GetCurrentHero', heroName).then(() => {
@@ -34,11 +40,14 @@ export default {
       this.$store.dispatch('GetCurrentCollocation', this.current_hero.name);
       var h = document.documentElement.clientHeight;
       document.getElementById('main').style.height = h * 2.5 + 'px';
+      this.loading.close();
     });
     this.$store.dispatch('GetCurrentSkin', heroName);
   },
   data() {
-    return {};
+    return {
+      loading: null
+    };
   },
   computed: {
     ...mapGetters({

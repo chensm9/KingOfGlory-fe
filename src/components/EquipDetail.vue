@@ -72,10 +72,18 @@ export default {
   name: 'EquipDetail',
   components: {},
   beforeMount() {
+    this.loading = this.$loading({
+      lock: true,
+      text: '正在从数据库获取数据中',
+      spinner: 'el-icon-loading',
+      background: 'rgba(0, 0, 0, 0.7)'
+    });
     var pathlist = this.$route.path.split('/');
     var equipName = pathlist[pathlist.length - 1];
     this.equipName = decodeURI(equipName);
-    this.$store.dispatch('GetCurrentEquip', equipName);
+    this.$store.dispatch('GetCurrentEquip', equipName).then(() => {
+      this.loading.close();
+    });
   },
   data() {
     return {
@@ -85,7 +93,8 @@ export default {
   computed: {
     ...mapGetters({
       equip: 'current_equip',
-      same_equip: 'same_equip'
+      same_equip: 'same_equip',
+      loading: null
     })
   },
   methods: {

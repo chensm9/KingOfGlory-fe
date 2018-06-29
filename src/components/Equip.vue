@@ -57,8 +57,15 @@ import { mapGetters } from 'vuex';
 
 export default {
   beforeMount() {
+    this.loading = this.$loading({
+      lock: true,
+      text: '正在从数据库获取数据中',
+      spinner: 'el-icon-loading',
+      background: 'rgba(0, 0, 0, 0.7)'
+    });
     this.$store.dispatch('GetAllEquip').then(() => {
       this.displayEquipInfo = this.AllEquipInfo;
+      this.loading.close();
     });
   },
   data() {
@@ -84,7 +91,8 @@ export default {
         防御属性: ['全部', '最大生命', '物理防御', '冷却缩减', '移速']
       },
       displayEquipInfo: [],
-      inputName: ''
+      inputName: '',
+      loading: null
     };
   },
   computed: {

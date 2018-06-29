@@ -36,8 +36,15 @@ import { mapGetters } from 'vuex';
 export default {
   name: 'Skin',
   beforeMount() {
+    this.loading = this.$loading({
+      lock: true,
+      text: '正在从数据库获取数据中',
+      spinner: 'el-icon-loading',
+      background: 'rgba(0, 0, 0, 0.7)'
+    });
     this.$store.dispatch('GetAllSkin').then(() => {
       this.init();
+      this.loading.close();
     });
   },
   data() {
@@ -48,7 +55,8 @@ export default {
       currentPage: 1,
       // 搜索条件
       inputName: '',
-      select_skin: []
+      select_skin: [],
+      loading: null
     };
   },
   computed: {
