@@ -1,10 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HeroInfoPage from '@/components/Hero';
-import EquipInfoPage from '@/components/Equip';
-import RuneInfoPage from '@/components/Rune';
-import Summoner from '@/components/Summoner';
-import Skin from '@/components/Skin';
 
 Vue.use(Router);
 
@@ -17,38 +12,38 @@ export default new Router({
     },
     {
       path: '/hero',
-      name: 'HeroInfo',
-      component: HeroInfoPage
+      name: 'Hero',
+      component: resolve => require(['@/components/Hero'], resolve)
     },
     {
       path: '/equip',
-      name: 'EquipInfo',
-      component: EquipInfoPage
+      name: 'Equip',
+      component: resolve => require(['@/components/Equip'], resolve)
     },
     {
       path: '/rune',
       name: 'RuneInfo',
-      component: RuneInfoPage
+      component: resolve => require(['@/components/Rune'], resolve)
     },
     {
       path: '/summoner',
       name: 'Summoner',
-      component: Summoner
+      component: resolve => require(['@/components/Summoner'], resolve)
     },
     {
       path: '/skin',
       name: 'Skin',
-      component: Skin
+      component: resolve => require(['@/components/Skin'], resolve)
     },
     {
       path: '/hero/*',
       name: 'HeroDetailInfo',
-      component: () => import('@/components/HeroDetail')
+      component: resolve => require(['@/components/HeroDetail'], resolve)
     },
     {
       path: '/equip/*',
       name: 'EquipDetail',
-      component: () => import('@/components/EquipDetail')
+      component: resolve => require(['@/components/EquipDetail'], resolve)
     },
     {
       path: '*', redirect: '/', hidden: true
