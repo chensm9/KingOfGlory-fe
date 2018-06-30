@@ -50,17 +50,25 @@
               trigger="hover">
               <div class="simpleDetail">
                 <img class="DetailIcon" v-lazy="'/static/images/rune/'+rune.name+'.png'" :alt="rune.name"/>
-                <div class='rune-title'>铭文名称：</div> <div class='rune-info'>{{ rune.name }}</div>
-                <div class='rune-title'>铭文等级：</div> <div class='rune-info'>{{ rune.level }}</div>
-                <div class='rune-title'>通用属性：</div> 
-                <div class='rune-info' 
-                  v-for="(item,key) in JSON.parse(rune.normalAttr)" :key="key">
-                  {{ key+':'+item }}
+                <div class="attr-box">
+                  <div class='rune-title'>铭文名称：</div> <div class='rune-info'>{{ rune.name }}</div>
                 </div>
-                <div class='rune-title'>冒险属性：</div> 
-                <div class='rune-info' 
-                  v-for="(item,key) in JSON.parse(rune.riskAttr)" :key="key">
-                  {{ key+':'+item }}
+                <div class="attr-box">
+                  <div class='rune-title'>铭文等级：</div> <div class='rune-info'>{{ rune.level }}</div>
+                </div>
+                <div class="attr-box">
+                  <div class='rune-title'>通用属性：</div> 
+                  <div class='rune-attr' 
+                    v-for="(item,key) in JSON.parse(rune.normalAttr)" :key="key">
+                    {{ key+':'+item }}
+                  </div>
+                </div>
+                <div class="attr-box">
+                  <div class='rune-title'>冒险属性：</div> 
+                  <div class='rune-attr' 
+                    v-for="(item,key) in JSON.parse(rune.riskAttr)" :key="key">
+                    {{ key+':'+item }}
+                  </div>
                 </div>
               </div>
               <div slot="reference" class="runeLink">
@@ -228,9 +236,6 @@ p.iconitem-name {
 
 div.simpleDetail {
   width: 100%;
-  /* display: block; */
-  float: left;
-  background-color: blanchedalmond;
 }
 
 img.DetailIcon {
@@ -259,5 +264,22 @@ img.DetailIcon {
   text-align: center;
   color: rgb(138, 12, 143);
   font-weight: bold;
+  font-size: 18px;
+}
+
+.rune-attr {
+  float: right;
+  width: 50%;
+  margin: 1%;
+  padding: 2%;
+  text-align: center;
+  color:darkorange;
+  font-weight: bold;
+}
+
+.attr-box {
+  display: block;
+  float: left;
+  width: 100%;
 }
 </style>

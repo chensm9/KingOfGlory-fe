@@ -31,6 +31,8 @@ export default {
     });
     var pathlist = this.$route.path.split('/');
     var heroName = pathlist[pathlist.length - 1];
+
+    // 获取当前英雄、当前英雄皮肤、当前英雄铭文、召唤师技能和装备搭配
     this.$store.dispatch('GetCurrentHero', heroName).then(() => {
       this.$store.dispatch(
         'GetSummonerByName',
